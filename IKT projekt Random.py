@@ -50,30 +50,49 @@ def Option3():
             print("Generáljon először fájlt az 1. opció segítségével!")
             Start()
         else:
-            print("Vissza akar lépni a menübe? n/y")
-            back = input("Tovább akar menni? n/y")
-            if back == "y":
-                n = int(input("Hány számot akar generálni: "))
-                felsoH = int(input("Generált számok felső határa: "))
-                alsoH = int(input("Generált számok alsó határa: "))
-                with open("ki.txt", "r") as f:
-                    numbers = f.read().split(";")
-                del numbers[-1] #az utolsó elem egy üres ''
-                numbers = [eval(i) for i in numbers]
-                if n == len(numbers):
-                    for x in range(len(numbers)):
-                        if numbers[x-1] >= alsoH and numbers[x-1] <= felsoH:
-                            None
-                        else:
-                            print("A lista nem felel meg a paramétereknek!")
-                            Option3()
-                    print("A lista megfelel a paramétereknek!")
-                else:
-                    print("A lista nem felel meg a paramétereknek!")
-                    Option3()
+            n = int(input("Hány számot akar generálni: "))
+            felsoH = int(input("Generált számok felső határa: "))
+            alsoH = int(input("Generált számok alsó határa: "))
+            with open("ki.txt", "r") as f:
+                numbers = f.read().split(";")
+            del numbers[-1] #az utolsó elem egy üres ''
+            numbers = [eval(i) for i in numbers]
+            if n == len(numbers):
+                for x in range(len(numbers)):
+                    if numbers[x-1] >= alsoH and numbers[x-1] <= felsoH:
+                        None
+                    else:
+                        print("A lista nem felel meg a paramétereknek!")
+                        Start()
+                print("A lista megfelel a paramétereknek!")
             else:
-                 Start()
+                print("A lista nem felel meg a paramétereknek!")
+                Start()
 def Option4():
-        print("Option4")
-        input()
+        try:
+            f = open("ki.txt")
+        except FileNotFoundError:
+            print("Generáljon először fájlt a 2. opció segítségével!")
+            Start()
+        else:
+            n = int(input("Generált szövegek száma: "))
+            Charachters = ["A","a","B","b","C","c","D","d","E","e","F","f","G","g","H","h","J","j","K","k","L","l","M","m","N","n","O","p","Q","q","R","r","S","s","T","t","U","u","V","v","W","w","X","x","Y","y","Z","z"]
+            with open("ki.txt", "r") as f:
+                szöveg = f.read().split(";")
+            del szöveg[-1] #az utolsó elem egy üres ''
+            if n == len(szöveg):
+                print(szöveg)
+                for x in range(len(szöveg)):
+                    for i in range(len(szöveg[x])):
+                        if szöveg[x][i] in Charachters:
+                             None
+                        else:
+                            print("A lista nemasdasd felel meg a paramétereknek!")
+                            Start()
+                print("A lista megfelel a paramétereknek!")
+            else:
+                print("A lista nemasdasd felel meg a paramétereknek!")
+                Start()
+                 
+            
 Start()
