@@ -50,10 +50,29 @@ def Option3():
             print("Generáljon először fájlt az 1. opció segítségével!")
             Start()
         else:
-            n = int(input("Hány számot akar generálni: "))
-            felsoH = int(input("Generált számok felső határa: "))
-            alsoH = int(input("Generált számok alsó határa: "))
-
+            print("Vissza akar lépni a menübe? n/y")
+            back = input("Tovább akar menni? n/y")
+            if back == "y":
+                n = int(input("Hány számot akar generálni: "))
+                felsoH = int(input("Generált számok felső határa: "))
+                alsoH = int(input("Generált számok alsó határa: "))
+                with open("ki.txt", "r") as f:
+                    numbers = f.read().split(";")
+                del numbers[-1] #az utolsó elem egy üres ''
+                numbers = [eval(i) for i in numbers]
+                if n == len(numbers):
+                    for x in range(len(numbers)):
+                        if numbers[x-1] >= alsoH and numbers[x-1] <= felsoH:
+                            None
+                        else:
+                            print("A lista nem felel meg a paramétereknek!")
+                            Option3()
+                    print("A lista megfelel a paramétereknek!")
+                else:
+                    print("A lista nem felel meg a paramétereknek!")
+                    Option3()
+            else:
+                 Start()
 def Option4():
         print("Option4")
         input()
