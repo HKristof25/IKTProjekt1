@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="hu" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rendezési Algoritmusok</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top" >
+        <div class="container-fluid">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+              <a class="nav-link" href="https://github.com/HKristof25/IKTProjekt1/blob/main/IKT%20projekt%20Rendez%C3%A9s.py">Rendezési algoritmus</a>
+              <a class="nav-link" href="https://github.com/HKristof25/IKTProjekt1/blob/main/IKT%20projekt%20Random.py">Random generálás</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    <h1>Buborékrendezés</h1>
+    <p><img class="jobbra" src="https://upload.wikimedia.org/wikipedia/commons/5/54/Sorting_bubblesort_anim.gif" alt="">A buborékrendezés (angolul: Bubble sort) egy naiv algoritmus, amellyel egy véges (nem feltétlenül numerikus) sorozat – vagy számítástechnikai szóhasználattal élve egy tömb – elemei sorba rendezhetők [(n-1)n]/2 összehasonlítás elvégzésével, ahol n a sorozat elemeinek számát jelenti.</p>
+    <h2>Az algoritmus</h2>
+    
+    <p>Az algoritmus alkalmazásának feltétele hogy a sorozat elemeihez létezzen egy rendezési reláció.
+
+        Az algoritmus újra és újra végigiterál a listán, összehasonlítja a lista szomszédos elemeit, és ha azok az elvárt rendezéshez képest fordítva vannak, akkor megcseréli őket. Első menetben a lista elejéről indul és a végéig megy. Ennek az első menetnek az eredményeként a legnagyobb elem (mint egy buborék) felszáll a lista végére. Így a következő menetben már elegendő az utolsó előtti elemig elvégezni a szomszédos elemek összehasonlítását és cseréjét. Az ezután következő menetben a lista utolsó két eleme lesz a helyén és így tovább...
+        
+        Az algoritmus két egymásba ágyazott ciklusból áll. A tömb első elemének indexe az 1, elemeinek száma pedig n. Az elemek itt számok, és a reláció a > (nagyobb).<br>
+    <pre><code> 
+CIKLUS i = n TŐL 1 IG {
+    CIKLUS j = 0 TÓL i-1 IG {
+        HA TOMB[j] > TOMB[j+1] AKKOR {
+            CSERÉLD FEL ŐKET: TOMB[j], TOMB[j+1]
+        } 
+    } 
+}</code>
+    </pre>
+    </p>
+    <p>A futás befejezése után a tömb 1-es indexű eleme lesz a legkisebb és az n indexű a legnagyobb.
+
+<br>
+        Az algoritmus onnan kapta a nevét, hogy először a legnagyobb elem „száll fel” a tömb utolsó helyére, utána a második legnagyobb az azt követő helyre, és így tovább, mint ahogy a buborékok szállnak felfelé egy pohárban.</p>
+<h2>Hatékonysága</h2>
+<p>A buborékrendezés egy egyszerű algoritmus, amelyet főleg az oktatásban használunk, mivel nem igazán hatékony. Elve, hogy egy „buborékkal” haladva a tömbben több menetben elölről hátra a buborékban szereplő két elemet felcseréljük, ha azok rossz sorrendben vannak.</p>
+<p>Források: <br><a href="https://hu.wikipedia.org/wiki/Buborékrendezés">https://hu.wikipedia.org/wiki/Buborékrendezés</a> <br>
+<a href="https://hu.wikipedia.org/wiki/Rendezés_(programozás)">https://hu.wikipedia.org/wiki/Rendezés_(programozás)</a></p> 
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+
+</body>
+</html>

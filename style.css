@@ -1,0 +1,20 @@
+.jobbra
+{
+    float: right;
+    margin: 10px;
+}
+
+body
+{
+    padding: 20px;
+}
+pre
+{
+    background-color: black;
+    color: white;
+    padding: 20px;
+}
+nav
+{
+border-radius: 10px;
+}
